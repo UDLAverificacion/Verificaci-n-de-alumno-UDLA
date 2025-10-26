@@ -102,7 +102,7 @@
 <body>
     
     <div class="logo-container">
-        <img src="logo.png" alt="Logo UDLA" style="width: 150px;">
+        <img src="logotipo_final.jpeg" alt="Logo UDLA" style="width: 150px;">
         <h2>SISTEMA DE SOLICITUD DE CERTIFICADOS</h2>
     </div>
 
@@ -137,6 +137,7 @@
         <p>✉️ <a href="mailto:servicio.estudiante@udla.cl">servicio.estudiante@udla.cl</a></p>
     </div>
 
+    <img src="decoracion.jpeg" alt="Decoracion UDLA" style="width: 100%; max-width: 400px; margin-top: 20px;">
 
 
     <script>
@@ -159,40 +160,39 @@
             if (esCorrecto) {
                 // Este codigo reemplaza el contenido del cuerpo con el resultado
                 document.body.innerHTML = `
-                    document.body.innerHTML = `
-    <div style="text-align: center; padding: 20px 0;">
-        <img src="logotipo_final.jpeg" alt="Logo UDLA" style="width: 150px;">
-        <h2>SISTEMA DE SOLICITUD DE CERTIFICADOS</h2>
-    </div>
-    <style> 
-        body { background-color: #f4f4f4; padding: 20px; }
-        .resultado-container { 
-            width: 90%; 
-            max-width: 600px; 
-            background-color: white; 
-            padding: 30px; 
-            margin: 20px auto; 
-            border-radius: 8px; 
-            box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+                    <style> 
+                        body { background-color: #f4f4f4; padding: 20px; }
+                        .resultado-container { 
+                            width: 90%; 
+                            max-width: 600px; 
+                            background-color: white; 
+                            padding: 30px; 
+                            margin: 20px auto; 
+                            border-radius: 8px; 
+                            box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+                        }
+                        .resultado-container h3 { color: #f38a00; border-bottom: 2px solid #f38a00; padding-bottom: 10px; }
+                        .resultado-container p { margin-bottom: 8px; line-height: 1.4; }
+                        .success { 
+                            color: green; 
+                            font-weight: bold; 
+                            text-align: center; 
+                            margin-bottom: 20px;
+                        }
+                    </style>
+                    <div class="resultado-container">
+                        <p class="success">Verificacion Exitosa</p>
+                        <h3>Alumno Encontrado</h3>
+                        <p><strong>Nombre:</strong> BETZABE DE LOURDES BRAVOS RANIMAN</p>
+                        <p><strong>RUT:</strong> 15.445.696-1</p>
+                        <p><strong>Grado Academico:</strong> INGENIERO EN EJECUCION EN INFORMATICA y el grado academico de LICENCIADO EN CIENCIAS DE L INGENIERIA</p>
+                        <p><strong>Titulacion:</strong> AÑO DE TITULACION 2011</p>
+                        <p><small>Certificado emitido por UDLA. Fecha: ${new Date().toLocaleDateString()}</small></p>
+                        <a href="${window.location.href}" style="display: block; text-align: center; margin-top: 30px; color: #005a9c;">Volver a la verificacion</a>
+                    </div>
+                `;
+            }
         }
-        .resultado-container h3 { color: #f38a00; border-bottom: 2px solid #f38a00; padding-bottom: 10px; }
-        .resultado-container p { margin-bottom: 8px; line-height: 1.4; }
-        .success { 
-            color: green; 
-            font-weight: bold; 
-            text-align: center; 
-            margin-bottom: 20px;
-        }
-    </style>
-    <div class="resultado-container">
-        <p class="success">Verificacion Exitosa</p>
-        <h3>Alumno Encontrado</h3>
-        <p><strong>Nombre:</strong> BETZABE DE LOURDES BRAVOS RANIMAN</p>
-        <p><strong>RUT:</strong> 15.445.696-1</p>
-        <p><strong>Grado Academico:</strong> INGENIERO EN EJECUCION EN INFORMATICA y el grado academico de LICENCIADO EN CIENCIAS DE L INGENIERIA</p>
-        <p><strong>Titulacion:</strong> AÑO DE TITULACION 2011</p>
-        <p><small>Certificado emitido por UDLA. Fecha: ${new Date().toLocaleDateString()}</small></p>
-        <a href="${window.location.href}" style="display: block; text-align: center; margin-top: 30px; color: #005a9c;">Volver a la verificacion</a>
-    </div>
-`;
-}
+    </script>
+</body>
+</html>
