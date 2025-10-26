@@ -3,195 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Certificados UDLA</title>
+    <title>Validación de Certificado - Resultado Simulado</title>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #f4f4f4; 
-            display: flex; 
-            flex-direction: column;
-            align-items: center; 
-            min-height: 100vh;
-        }
-        .logo-container {
-            text-align: center;
-            padding: 20px 0;
-        }
-        .container { 
-            width: 90%; 
-            max-width: 400px; 
-            background-color: #fff; 
-            padding: 20px; 
-            margin: 20px auto;
-            border-radius: 4px; 
-            box-shadow: 0 0 10px rgba(0,0,0,0.1); 
-        }
-        h2 { 
-            text-align: center; 
-            color: #333; 
-            font-size: 1.2em;
-            margin-top: 0;
-        }
-        .access-box {
-            background-color: #333; 
-            color: white;
-            padding: 20px;
-            text-align: center;
-            border-radius: 4px;
-            margin-bottom: 20px;
-        }
-        .access-box h1 {
-            font-size: 1.2em;
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
+            padding: 20px;
+            background-color: #f7f7f7; /* Fondo ligeramente gris para diferenciar secciones */
+            color: #333;
         }
-        .form-group { 
-            margin-bottom: 15px; 
+        .header {
             display: flex;
             align-items: center;
+            margin-bottom: 30px;
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .logo-container {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+            background-color: #004d99;
+            border: 1px solid #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 8px;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .university-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #004d99;
+            text-transform: uppercase;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: normal;
+            line-height: 1.2;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #004d99;
+        }
+        .description {
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .form-container input[type="text"] {
+            width: 100%;
+            padding: 12px 10px;
+            margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            padding: 5px;
-            background-color: white;
+            box-sizing: border-box;
+            font-size: 15px;
         }
-        .form-group span {
-            padding: 0 10px;
-            color: #666;
+        .form-container input::placeholder {
+            color: #999;
+            font-weight: bold;
         }
-        .form-group input { 
-            flex-grow: 1;
-            padding: 8px; 
-            box-sizing: border-box; 
+        .form-container button {
+            width: 100%;
+            padding: 15px;
+            background-color: #004d99;
+            color: white;
             border: none;
-            outline: none;
-        }
-        .btn { 
-            width: 100%; 
-            padding: 10px; 
-            background-color: #f38a00;
-            color: white; 
-            border: none; 
-            border-radius: 4px; 
-            cursor: pointer; 
-            font-size: 16px; 
+            border-radius: 4px;
+            font-size: 16px;
             font-weight: bold;
-            margin-top: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
-        .back-link {
-            display: block;
-            text-align: center;
-            margin-top: 15px;
-            color: #f38a00;
-            text-decoration: none;
+        .form-container button:hover {
+            background-color: #003366;
+        }
+
+        /* --- Estilos para la Sección de Resultados --- */
+        #resultado {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e6ffe6; /* Fondo verde claro para indicar éxito/validación */
+            border: 1px solid #009900;
+            border-radius: 8px;
+            display: none; /* Inicialmente oculto */
+        }
+        .resultado-titulo {
+            font-size: 20px;
+            color: #006600;
+            margin-bottom: 15px;
             font-weight: bold;
+            border-bottom: 2px solid #009900;
+            padding-bottom: 5px;
         }
-        .contact-info {
-            font-size: 0.85em;
-            text-align: center;
-            margin-top: 20px;
-            color: #666;
+        .resultado-item {
+            margin-bottom: 10px;
+            font-size: 15px;
         }
-        .contact-info a {
-            color: #f38a00;
-            text-decoration: none;
+        .resultado-item strong {
+            display: inline-block;
+            width: 150px; /* Ancho fijo para alinear los dos puntos */
+            color: #333;
+        }
+        .resultado-ok {
+            color: green;
             font-weight: bold;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-    
-    <div class="logo-container">
-        <img src="logotipo.png" alt="Logo UDLA" style="width: 150px;">
-        <h2>SISTEMA DE VERIFICACIÓN DE CERTIFICADOS</h2>
+
+    <div class="header">
+        <div class="logo-container">
+            [LOGO UBB]
+        </div>
+        <div class="university-name">
+            UNIVERSIDAD DEL BÍO-BÍO
+        </div>
     </div>
 
-    <div class="container">
-        <div class="access-box">
-            <h1>Acceso solo para ex-alumnos de la institucion.</h1>
+    <h1>
+        Validación de Certificado de Título Profesional o Grado Académico
+    </h1>
+
+    <div class="description">
+        En este portal podrá validar la veracidad del certificado de título profesional o grado académico emitidos por la **Universidad del Bío-Bío**.
+    </div>
+
+    <div class="form-container">
+        <form id="validationForm">
+            <input type="text" id="rutInput" placeholder="Rut" aria-label="Rut" value="17849454-6" required>
+            <input type="text" id="decretoInput" placeholder="N° Decreto" aria-label="Número de Decreto" value="1917" required>
+            <input type="text" id="fechaInput" placeholder="Fecha Decreto (DDMMAAAA)" aria-label="Fecha del Decreto" value="13022024" required>
+            
+            <button type="button" onclick="validateCertificate()">Validar Certificado</button>
+        </form>
+    </div>
+
+    <div id="resultado">
+        <div class="resultado-titulo">✅ Certificado Validado Exitosamente</div>
+        
+        <div class="resultado-item">
+            <strong>Estado:</strong> 
+            <span class="resultado-ok">Vigente y Válido</span>
+        </div>
+        
+        <div class="resultado-item">
+            <strong>Nombre Completo:</strong> 
+            <span id="resultadoNombre">David Leopoldo Marambio González</span>
         </div>
 
-        <form onsubmit="verificarDatos(); return false;">
-            
-            <div class="form-group">
-                <span>👤</span>
-                <input type="text" id="rut" name="rut" placeholder="Rut sin puntos ni guion" required>
-            </div>
-            
-            <div class="form-group">
-                <span>🗓️</span>
-                <input type="text" id="fecha" name="fecha" placeholder="Fecha de nacimiento en formato ddmmyyyy" required>
-            </div>
-            
-            <button type="submit" class="btn">Ingresar</button>
-        </form>
+        <div class="resultado-item">
+            <strong>RUT:</strong> 
+            <span id="resultadoRut">17.849.454-6</span>
+        </div>
         
-        <a href="#" class="back-link">Volver a la intranet</a>
+        <div class="resultado-item">
+            <strong>Carrera:</strong> 
+            <span id="resultadoCarrera">Ingeniería en Informática</span>
+        </div>
         
-        <p id="error" style="color: red; text-align: center; margin-top: 15px; display: none;">Rut o Fecha incorrectos. Por favor intente de nuevo.</p>
+        <div class="resultado-item">
+            <strong>Grado Académico:</strong> 
+            <span id="resultadoGrado">Licenciado en Ciencias de la Informática</span>
+        </div>
+        
+        <div class="resultado-item">
+            <strong>Fecha de Egreso:</strong> 
+            <span id="resultadoEgreso">10 de enero de 2024</span>
+        </div>
+        
+        <div class="resultado-item">
+            <strong>N° Decreto UBB:</strong> 
+            <span id="resultadoDecreto">1917</span>
+        </div>
+        
+        <div class="resultado-item">
+            <strong>Fecha Decreto:</strong> 
+            <span id="resultadoFechaDecreto">13 de febrero de 2024</span>
+        </div>
     </div>
-
-    <div class="contact-info">
-        <p>En caso de inconvenientes, contactar con la Plataforma de Contacto con el Estudiante (PCE)</p>
-        <p>Desde telefonos fijos <a href="tel:800240100">800240100</a> | Desde telefonos moviles 📱 <a href="tel:222531999">222531999</a> | WhatsApp 💬 <a href="https://wa.me/56934527028">+56934527028</a></p>
-        <p>✉️ <a href="mailto:servicio.estudiante@udla.cl">servicio.estudiante@udla.cl</a></p>
-    </div>
-
-    
 
     <script>
-        function verificarDatos() {
-            var rutIngresado = document.getElementById('rut').value.replace(/[^0-9kK]/g, '').toUpperCase();
-            var fechaIngresada = document.getElementById('fecha').value.replace(/[^0-9]/g, '');
-            var errorDiv = document.getElementById('error');
-            
-            var rutCorrecto = "154456961";
-            var fechaCorrecta = "17021983"; // 17/02/1983
+        function validateCertificate() {
+            // En una aplicación real, aquí se enviarían los datos a un servidor.
+            // Para la simulación, simplemente mostramos el resultado preestablecido.
 
-            if (rutIngresado === rutCorrecto && fechaIngresada === fechaCorrecta) {
-                mostrarResultado(true);
-            } else {
-                errorDiv.style.display = 'block';
-            }
-        }
+            // 1. Obtener el elemento de resultado
+            const resultadoDiv = document.getElementById('resultado');
 
-        function mostrarResultado(esCorrecto) {
-            if (esCorrecto) {
-                // Este codigo reemplaza el contenido del cuerpo con el resultado
-                document.body.innerHTML = `
-                    <style> 
-                        body { background-color: #f4f4f4; padding: 20px; }
-                        .resultado-container { 
-                            width: 90%; 
-                            max-width: 600px; 
-                            background-color: white; 
-                            padding: 30px; 
-                            margin: 20px auto; 
-                            border-radius: 8px; 
-                            box-shadow: 0 0 10px rgba(0,0,0,0.1); 
-                        }
-                        .resultado-container h3 { color: #f38a00; border-bottom: 2px solid #f38a00; padding-bottom: 10px; }
-                        .resultado-container p { margin-bottom: 8px; line-height: 1.4; }
-                        .success { 
-                            color: green; 
-                            font-weight: bold; 
-                            text-align: center; 
-                            margin-bottom: 20px;
-                        }
-                    </style>
-                    <div class="resultado-container">
-                        <p class="success">Verificacion Exitosa</p>
-                        <h3>Alumno Encontrado</h3>
-                        <p><strong>Nombre:</strong> BETZABE DE LOURDES BRAVOS RANIMAN</p>
-                        <p><strong>RUT:</strong> 15.445.696-1</p>
-                        <p><strong>Grado Academico:</strong> INGENIERO EN EJECUCION EN INFORMATICA y el grado academico de LICENCIADO EN CIENCIAS DE L INGENIERIA</p>
-                        <p><strong>Titulacion:</strong> AÑO DE TITULACION 2011</p>
-                        <p><small>Certificado emitido por UDLA. Fecha: ${new Date().toLocaleDateString()}</small></p>
-                        <a href="${window.location.href}" style="display: block; text-align: center; margin-top: 30px; color: #005a9c;">Volver a la verificacion</a>
-                    </div>
-                `;
-            }
+            // 2. Simular la validación (se puede añadir una pequeña espera para un efecto más realista)
+            setTimeout(() => {
+                // 3. Mostrar la sección de resultado
+                resultadoDiv.style.display = 'block';
+
+                // 4. Se desplaza a la sección de resultados para mejor UX en móvil
+                resultadoDiv.scrollIntoView({ behavior: 'smooth' });
+
+            }, 500); // Muestra el resultado después de medio segundo
         }
     </script>
+
 </body>
 </html>
