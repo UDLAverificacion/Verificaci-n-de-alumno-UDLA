@@ -3,56 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Validación de Certificado - Resultado Simulado</title>
+    <title>Validación de Certificado - UBB (Simulación Mejorada)</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f7f7f7; /* Fondo ligeramente gris para diferenciar secciones */
+            background-color: #f7f7f7;
             color: #333;
+        }
+        .container {
+            max-width: 450px; /* Ancho máximo para simular vista móvil */
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         .header {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            margin-bottom: 30px;
-            background-color: #ffffff;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
         }
-        .logo-container {
-            width: 60px;
-            height: 60px;
-            margin-right: 15px;
-            background-color: #004d99;
-            border: 1px solid #ddd;
+        .logo {
+            width: 100px; /* Tamaño del logo */
+            height: 100px;
+            margin-bottom: 10px;
+            background-color: #004d99; /* Color UBB simulado */
+            border-radius: 5px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 8px;
             color: white;
-            text-align: center;
-            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
         }
         .university-name {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
             color: #004d99;
-            text-transform: uppercase;
+            text-align: center;
         }
         h1 {
             font-size: 24px;
             font-weight: normal;
             line-height: 1.2;
             margin-top: 0;
-            margin-bottom: 20px;
-            color: #004d99;
+            margin-bottom: 15px;
+            text-align: center;
         }
         .description {
             font-size: 14px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             line-height: 1.5;
+            text-align: center;
         }
         .form-container input[type="text"] {
             width: 100%;
@@ -64,13 +71,13 @@
             font-size: 15px;
         }
         .form-container input::placeholder {
-            color: #999;
             font-weight: bold;
+            color: #777;
         }
         .form-container button {
             width: 100%;
-            padding: 15px;
-            background-color: #004d99;
+            padding: 14px;
+            background-color: #f38f20; /* Color naranja/amarillo para acción principal */
             color: white;
             border: none;
             border-radius: 4px;
@@ -78,134 +85,154 @@
             font-weight: bold;
             cursor: pointer;
             transition: background-color 0.3s;
+            margin-bottom: 15px;
         }
         .form-container button:hover {
-            background-color: #003366;
+            background-color: #d87d15;
         }
 
         /* --- Estilos para la Sección de Resultados --- */
         #resultado {
-            margin-top: 30px;
+            margin-top: 25px;
             padding: 20px;
-            background-color: #e6ffe6; /* Fondo verde claro para indicar éxito/validación */
+            background-color: #e6ffe6;
             border: 1px solid #009900;
             border-radius: 8px;
             display: none; /* Inicialmente oculto */
         }
         .resultado-titulo {
-            font-size: 20px;
+            font-size: 18px;
             color: #006600;
             margin-bottom: 15px;
             font-weight: bold;
             border-bottom: 2px solid #009900;
             padding-bottom: 5px;
+            text-align: left;
         }
         .resultado-item {
             margin-bottom: 10px;
-            font-size: 15px;
+            font-size: 14px;
         }
         .resultado-item strong {
             display: inline-block;
-            width: 150px; /* Ancho fijo para alinear los dos puntos */
-            color: #333;
+            width: 120px;
+            color: #555;
         }
         .resultado-ok {
             color: green;
             font-weight: bold;
-            font-size: 16px;
+        }
+        .volver-btn {
+            background-color: #004d99 !important; /* Color UBB para volver */
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <div class="logo-container">
-            [LOGO UBB]
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                [IMAGEN/LOGO UBB]
+            </div>
+            <div class="university-name">
+                UNIVERSIDAD DEL BÍO-BÍO
+            </div>
         </div>
-        <div class="university-name">
-            UNIVERSIDAD DEL BÍO-BÍO
+        
+        <h1 id="mainTitle">
+            Validación de Certificado de Título Profesional o Grado Académico
+        </h1>
+
+        <div class="description" id="mainDescription">
+            En este portal podrá validar la veracidad del certificado de título profesional o grado académico emitidos por la **Universidad del Bío-Bío**.
         </div>
-    </div>
 
-    <h1>
-        Validación de Certificado de Título Profesional o Grado Académico
-    </h1>
+        <div class="form-container" id="formSection">
+            <form id="validationForm">
+                <input type="text" id="rutInput" placeholder="Rut sin puntos ni guion" value="178494546" required>
+                <input type="text" id="decretoInput" placeholder="N° Decreto" value="1917" required>
+                <input type="text" id="fechaInput" placeholder="Fecha Decreto (DDMMAAAA)" value="13022024" required>
+                
+                <button type="button" onclick="validateCertificate()">Validar Certificado</button>
+            </form>
+        </div>
 
-    <div class="description">
-        En este portal podrá validar la veracidad del certificado de título profesional o grado académico emitidos por la **Universidad del Bío-Bío**.
-    </div>
-
-    <div class="form-container">
-        <form id="validationForm">
-            <input type="text" id="rutInput" placeholder="Rut" aria-label="Rut" value="17849454-6" required>
-            <input type="text" id="decretoInput" placeholder="N° Decreto" aria-label="Número de Decreto" value="1917" required>
-            <input type="text" id="fechaInput" placeholder="Fecha Decreto (DDMMAAAA)" aria-label="Fecha del Decreto" value="13022024" required>
+        <div id="resultado">
+            <div class="resultado-titulo">✅ Certificado Validado Exitosamente</div>
             
-            <button type="button" onclick="validateCertificate()">Validar Certificado</button>
-        </form>
-    </div>
+            <div class="resultado-item">
+                <strong>Estado:</strong> 
+                <span class="resultado-ok">Vigente y Válido</span>
+            </div>
+            
+            <div class="resultado-item">
+                <strong>Nombre:</strong> 
+                <span>David Leopoldo Marambio González</span>
+            </div>
 
-    <div id="resultado">
-        <div class="resultado-titulo">✅ Certificado Validado Exitosamente</div>
-        
-        <div class="resultado-item">
-            <strong>Estado:</strong> 
-            <span class="resultado-ok">Vigente y Válido</span>
-        </div>
-        
-        <div class="resultado-item">
-            <strong>Nombre Completo:</strong> 
-            <span id="resultadoNombre">David Leopoldo Marambio González</span>
-        </div>
-
-        <div class="resultado-item">
-            <strong>RUT:</strong> 
-            <span id="resultadoRut">17.849.454-6</span>
-        </div>
-        
-        <div class="resultado-item">
-            <strong>Carrera:</strong> 
-            <span id="resultadoCarrera">Ingeniería en Informática</span>
-        </div>
-        
-        <div class="resultado-item">
-            <strong>Grado Académico:</strong> 
-            <span id="resultadoGrado">Licenciado en Ciencias de la Informática</span>
-        </div>
-        
-        <div class="resultado-item">
-            <strong>Fecha de Egreso:</strong> 
-            <span id="resultadoEgreso">10 de enero de 2024</span>
-        </div>
-        
-        <div class="resultado-item">
-            <strong>N° Decreto UBB:</strong> 
-            <span id="resultadoDecreto">1917</span>
-        </div>
-        
-        <div class="resultado-item">
-            <strong>Fecha Decreto:</strong> 
-            <span id="resultadoFechaDecreto">13 de febrero de 2024</span>
+            <div class="resultado-item">
+                <strong>RUT:</strong> 
+                <span>17.849.454-6</span>
+            </div>
+            
+            <div class="resultado-item">
+                <strong>Carrera:</strong> 
+                <span>Ingeniería en Informática</span>
+            </div>
+            
+            <div class="resultado-item">
+                <strong>Grado:</strong> 
+                <span>Licenciado en Ciencias de la Informática</span>
+            </div>
+            
+            <div class="resultado-item">
+                <strong>Fecha Egreso:</strong> 
+                <span>10 de enero de 2024</span>
+            </div>
+            
+            <div class="resultado-item">
+                <strong>N° Decreto:</strong> 
+                <span>1917</span>
+            </div>
+            
+            <div class="resultado-item">
+                <strong>Fecha Decreto:</strong> 
+                <span>13 de febrero de 2024</span>
+            </div>
+            
+            <button type="button" class="volver-btn" onclick="resetForm()">Volver al Inicio</button>
         </div>
     </div>
 
     <script>
         function validateCertificate() {
-            // En una aplicación real, aquí se enviarían los datos a un servidor.
-            // Para la simulación, simplemente mostramos el resultado preestablecido.
+            // Oculta el formulario y muestra los resultados
+            document.getElementById('formSection').style.display = 'none';
+            document.getElementById('resultado').style.display = 'block';
+            
+            // Oculta el título y descripción principal para una vista más limpia
+            document.getElementById('mainTitle').style.display = 'none';
+            document.getElementById('mainDescription').style.display = 'none';
 
-            // 1. Obtener el elemento de resultado
-            const resultadoDiv = document.getElementById('resultado');
+            // Desplazamiento a la sección de resultados
+            document.getElementById('resultado').scrollIntoView({ behavior: 'smooth' });
+        }
 
-            // 2. Simular la validación (se puede añadir una pequeña espera para un efecto más realista)
-            setTimeout(() => {
-                // 3. Mostrar la sección de resultado
-                resultadoDiv.style.display = 'block';
+        function resetForm() {
+            // Muestra el formulario y oculta los resultados
+            document.getElementById('formSection').style.display = 'block';
+            document.getElementById('resultado').style.display = 'none';
+            
+            // Muestra el título y descripción principal
+            document.getElementById('mainTitle').style.display = 'block';
+            document.getElementById('mainDescription').style.display = 'block';
 
-                // 4. Se desplaza a la sección de resultados para mejor UX en móvil
-                resultadoDiv.scrollIntoView({ behavior: 'smooth' });
-
-            }, 500); // Muestra el resultado después de medio segundo
+            // Limpia los campos del formulario, si es necesario, o usa la función nativa de HTML
+            document.getElementById('validationForm').reset();
+            
+            // Desplazamiento al inicio de la página
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 
