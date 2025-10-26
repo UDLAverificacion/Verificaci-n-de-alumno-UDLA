@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Certificados UDLA</title>
     <style>
+        /* CSS CORREGIDO (EN INGLÉS) */
         body { 
             font-family: Arial, sans-serif; 
             margin: 0; 
@@ -35,7 +36,7 @@
             margin-top: 0;
         }
         .access-box {
-            background-color: #333; 
+            background-color: #333; /* Fondo oscuro del portal UDLA */
             color: white;
             padding: 20px;
             text-align: center;
@@ -69,7 +70,7 @@
         .btn { 
             width: 100%; 
             padding: 10px; 
-            background-color: #f38a00;
+            background-color: #f38a00; /* Naranja UDLA */
             color: white; 
             border: none; 
             border-radius: 4px; 
@@ -86,6 +87,7 @@
             text-decoration: none;
             font-weight: bold;
         }
+        /* Estilos para el texto de contacto */
         .contact-info {
             font-size: 0.85em;
             text-align: center;
@@ -108,14 +110,14 @@
 
     <div class="container">
         <div class="access-box">
-            <h1>Acceso solo para ex-alumnos de la institucion.</h1>
+            <h1>Acceso solo para ex-alumnos de la institución.</h1>
         </div>
 
         <form onsubmit="verificarDatos(); return false;">
             
             <div class="form-group">
                 <span>👤</span>
-                <input type="text" id="rut" name="rut" placeholder="Rut sin puntos ni guion" required>
+                <input type="text" id="rut" name="rut" placeholder="Rut sin puntos ni guión" required>
             </div>
             
             <div class="form-group">
@@ -133,11 +135,11 @@
 
     <div class="contact-info">
         <p>En caso de inconvenientes, contactar con la Plataforma de Contacto con el Estudiante (PCE)</p>
-        <p>Desde telefonos fijos <a href="tel:800240100">800240100</a> | Desde telefonos moviles 📱 <a href="tel:222531999">222531999</a> | WhatsApp 💬 <a href="https://wa.me/56934527028">+56934527028</a></p>
+        <p>Desde teléfonos fijos <a href="tel:800240100">800240100</a> | Desde teléfonos móviles 📱 <a href="tel:222531999">222531999</a> | WhatsApp 💬 <a href="https://wa.me/56934527028">+56934527028</a></p>
         <p>✉️ <a href="mailto:servicio.estudiante@udla.cl">servicio.estudiante@udla.cl</a></p>
     </div>
 
-    <img src="decoracion11.jpeg" alt="Decoracion UDLA" style="width: 100%; max-width: 400px; margin-top: 20px;">
+    <img src="decoración11.jpeg" alt="Decoración UDLA" style="width: 100%; max-width: 400px; margin-top: 20px;">
 
 
     <script>
@@ -146,6 +148,7 @@
             var fechaIngresada = document.getElementById('fecha').value.replace(/[^0-9]/g, '');
             var errorDiv = document.getElementById('error');
             
+            // --- DATOS SECRETOS: FECHA SOLICITADA ---
             var rutCorrecto = "154456961";
             var fechaCorrecta = "17021983"; // 17/02/1983
 
@@ -158,9 +161,10 @@
 
         function mostrarResultado(esCorrecto) {
             if (esCorrecto) {
-                // Este codigo reemplaza el contenido del cuerpo con el resultado
+                // Este código reemplaza el contenido del cuerpo con el resultado
                 document.body.innerHTML = `
                     <style> 
+                        /* Estilos para la página de resultado */
                         body { background-color: #f4f4f4; padding: 20px; }
                         .resultado-container { 
                             width: 90%; 
@@ -181,14 +185,14 @@
                         }
                     </style>
                     <div class="resultado-container">
-                        <p class="success">Verificacion Exitosa</p>
+                        <p class="success">Verificación Exitosa</p>
                         <h3>Alumno Encontrado</h3>
                         <p><strong>Nombre:</strong> BETZABE DE LOURDES BRAVOS RANIMAN</p>
                         <p><strong>RUT:</strong> 15.445.696-1</p>
-                        <p><strong>Grado Academico:</strong> INGENIERO EN EJECUCION EN INFORMATICA y el grado academico de LICENCIADO EN CIENCIAS DE L INGENIERIA</p>
-                        <p><strong>Titulacion:</strong> AÑO DE TITULACION 2011</p>
+                        <p><strong>Grado Académico:</strong> INGENIERO EN EJECUCIÓN EN INFORMÁTICA y el grado académico de LICENCIADO EN CIENCIAS DE L INGENIERÍA</p>
+                        <p><strong>Titulación:</strong> AÑO DE TITULACIÓN 2011</p>
                         <p><small>Certificado emitido por UDLA. Fecha: ${new Date().toLocaleDateString()}</small></p>
-                        <a href="${window.location.href}" style="display: block; text-align: center; margin-top: 30px; color: #005a9c;">Volver a la verificacion</a>
+                        <a href="${window.location.href}" style="display: block; text-align: center; margin-top: 30px; color: #005a9c;">Volver a la verificación</a>
                     </div>
                 `;
             }
